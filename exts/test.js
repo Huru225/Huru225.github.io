@@ -1,3 +1,4 @@
+http.setRequestHeader('Content-Type', 'text/html;charset=GBK');
 (function(Scratch) {
   'use strict';
 
