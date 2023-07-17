@@ -536,24 +536,24 @@ http.setRequestHeader('Content-Type', 'text/html;charset=GBK');
     getInfo() {
       return {
         id: 'animatedText',
-        name: 'ÒÕÊõ×Ö',
+        name: 'è‰ºæœ¯å­—',
         blockIconURI: blockIconURI,
         blocks: [
           {
             opcode: 'setText',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'ÏÔÊ¾ÎÄ±¾ [TEXT]',
+            text: 'æ˜¾ç¤ºæ–‡æœ¬ [TEXT]',
             arguments: {
               TEXT: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: '»¶Ó­À´µ½ÎÒµÄ×÷Æ·£¡'
+                defaultValue: 'æ¬¢è¿æ¥åˆ°æˆ‘çš„ä½œå“ï¼'
               }
             }
           },
           {
             opcode: 'animateText',
             blockType: Scratch.BlockType.COMMAND,
-            text: '[ANIMATE] Ğ§¹ûÏÔÊ¾ÎÄ±¾ [TEXT]',
+            text: '[ANIMATE] æ•ˆæœæ˜¾ç¤ºæ–‡æœ¬ [TEXT]',
             arguments: {
               ANIMATE: {
                 type: Scratch.ArgumentType.STRING,
@@ -562,20 +562,20 @@ http.setRequestHeader('Content-Type', 'text/html;charset=GBK');
               },
               TEXT: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: 'ÈÃÎÒÃÇ¿ªÊ¼°É£¡'
+                defaultValue: 'è®©æˆ‘ä»¬å¼€å§‹å§ï¼'
               }
             }
           },
           {
             opcode: 'clearText',
             blockType: Scratch.BlockType.COMMAND,
-            text: 'ÏÔÊ¾½ÇÉ«'
+            text: 'æ˜¾ç¤ºè§’è‰²'
           },
           '---',
           {
             opcode: 'setFont',
             blockType: Scratch.BlockType.COMMAND,
-            text: '½«×ÖÌåÉèÖÃÎª [FONT]',
+            text: 'å°†å­—ä½“è®¾ç½®ä¸º [FONT]',
             arguments: {
               FONT: {
                 type: Scratch.ArgumentType.STRING,
@@ -586,7 +586,7 @@ http.setRequestHeader('Content-Type', 'text/html;charset=GBK');
           {
             opcode: 'setColor',
             blockType: Scratch.BlockType.COMMAND,
-            text: '½«ÎÄ±¾ÑÕÉ«ÉèÖÃÎª [COLOR]',
+            text: 'å°†æ–‡æœ¬é¢œè‰²è®¾ç½®ä¸º [COLOR]',
             arguments: {
               COLOR: {
                 type: Scratch.ArgumentType.COLOR
@@ -596,7 +596,7 @@ http.setRequestHeader('Content-Type', 'text/html;charset=GBK');
           {
             opcode: 'setWidth',
             blockType: Scratch.BlockType.COMMAND,
-            text: '½«¿í¶ÈÉèÖÃÎª [WIDTH] ¶ÔÆë·½Ê½ [ALIGN]',
+            text: 'å°†å®½åº¦è®¾ç½®ä¸º [WIDTH] å¯¹é½æ–¹å¼ [ALIGN]',
             arguments: {
               WIDTH: {
                 type: Scratch.ArgumentType.NUMBER,
@@ -611,17 +611,17 @@ http.setRequestHeader('Content-Type', 'text/html;charset=GBK');
           {
             opcode: 'labelNewBlocks',
             blockType: Scratch.BlockType.LABEL,
-            text: 'ÓëScratch Lab²»¼æÈİ£º'
+            text: 'ä¸Scratch Labä¸å…¼å®¹ï¼š'
           },
           {
             opcode: 'textActive',
             blockType: Scratch.BlockType.BOOLEAN,
-            text: 'ÕıÔÚÏÔÊ¾ÎÄ±¾£¿'
+            text: 'æ­£åœ¨æ˜¾ç¤ºæ–‡æœ¬ï¼Ÿ'
           },
           {
             opcode: 'getTextAttribute',
             blockType: Scratch.BlockType.REPORTER,
-            text: 'ÎÄ±¾µÄ [ATTRIBUTE]',
+            text: 'æ–‡æœ¬çš„ [ATTRIBUTE]',
             arguments: {
               ATTRIBUTE: {
                 type: Scratch.ArgumentType.STRING,
