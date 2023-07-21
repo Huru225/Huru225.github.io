@@ -67,9 +67,7 @@
                     </a>
                   </div>
                 </div>
-            <li class="list-group-item">
-                <div class="card-group box-center" id="cardContainer">
-                </div>
+            <li class="list-group-item" id="cardContainer">
             </li>
           </ul>
       </div>
@@ -81,6 +79,14 @@
           .then(data => {
             // 循环遍历每一项数据并创建卡片元素
             data.forEach((item, index) => {
+              // 每生成五个卡片前加入card-group div
+              if (index % 5 === 0) {
+                var cardGroup = document.createElement("div");
+                cardGroup.className = "card-group box-center";
+                var cardContainer = document.getElementById("cardContainer");
+                cardContainer.appendChild(cardGroup);
+              }
+          
               // 创建卡片元素
               var card = document.createElement("div");
               card.className = "card";
@@ -133,13 +139,8 @@
               card.appendChild(cardBody);
     
               // 将卡片元素添加到文档中
-              var cardContainer = document.getElementById("cardContainer");
-              cardContainer.appendChild(card);
-    
-              // 每生成五个卡片后添加换行
-              if ((index + 1) % 5 === 0) {
-                cardContainer.appendChild(document.createElement("br"));
-              }
+              var cardGroup = document.querySelector(".card-group");
+              cardGroup.appendChild(card);
             });
           })
           .catch(error => console.log(error));
