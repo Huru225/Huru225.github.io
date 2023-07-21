@@ -48,6 +48,12 @@
         .text-right {
             text-align: right;
         }
+        .card-group {
+            display: flex;
+        }
+        .box-center {
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -138,11 +144,11 @@
               cardGroup.appendChild(card);
 
               // 每五个卡片后加入</div>
-              if ((index + 1) % 5 === 0) {
-                  var closingDiv = document.createElement("div");
-                  closingDiv.innerHTML = "</div>";
-                  cardContainer.appendChild(closingDiv);
-              }
+            //   if ((index + 1) % 5 === 0) {
+            //       var closingDiv = document.createElement("div");
+            //       closingDiv.innerHTML = "</div>";
+            //       cardContainer.appendChild(closingDiv);
+            //   }
             });
             // 如果最后一组卡片少于五个，则补充 </div>
             if (data.length % 5 !== 0) {
