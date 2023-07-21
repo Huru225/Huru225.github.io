@@ -7,13 +7,15 @@
 </head>
 <body>
     <script>
-        fetch('nav.txt')
-        .then(response => response.text())
-        .then(navbarContent => {
-            console.log(navbarContent); // 或者将内容显示在网页中的导航栏元素中
-        })
-        .catch(error => {
-            console.error("无法读取导航栏内容:", error);
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('nav.txt')
+                .then(response => response.text())
+                .then(navbarContent => {
+                console.log(navbarContent); // 输出到控制台
+                })
+                .catch(error => {
+                console.error("无法读取导航栏内容:", error);
+                });
         });
     </script>
 
