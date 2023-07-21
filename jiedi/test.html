@@ -48,6 +48,11 @@
         .text-right {
             text-align: right;
         }
+        .card {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -75,7 +80,7 @@
           .then(response => response.json())
           .then(data => {
             // 循环遍历每一项数据并创建卡片元素
-            data.forEach(item => {
+            data.forEach((item, index) => {
               // 创建卡片元素
               var card = document.createElement("div");
               card.className = "card";
@@ -99,6 +104,7 @@
     
               // 创建卡片底部
               var cardFooter = document.createElement("div");
+              cardFooter.className = "card-footer";
     
               // 创建卡片链接
               var link = document.createElement("a");
@@ -129,6 +135,11 @@
               // 将卡片元素添加到文档中
               var cardContainer = document.getElementById("cardContainer");
               cardContainer.appendChild(card);
+    
+              // 每生成五个卡片后添加换行
+              if ((index + 1) % 5 === 0) {
+                cardContainer.appendChild(document.createElement("br"));
+              }
             });
           })
           .catch(error => console.log(error));
