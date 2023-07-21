@@ -141,7 +141,21 @@
               // 将卡片元素添加到文档中
               var cardGroup = document.querySelector(".card-group");
               cardGroup.appendChild(card);
+
+              // 每五个卡片后加入</div>
+              if ((index + 1) % 5 === 0) {
+                  var closingDiv = document.createElement("div");
+                  closingDiv.innerHTML = "</div>";
+                  cardContainer.appendChild(closingDiv);
+              }
             });
+            // 如果最后一组卡片少于五个，则补充 </div>
+            if (data.length % 5 !== 0) {
+                var cardContainer = document.getElementById("cardContainer");
+                var closingDiv = document.createElement("div");
+                closingDiv.innerHTML = "</div>";
+                cardContainer.appendChild(closingDiv);
+            }
           })
           .catch(error => console.log(error));
       </script>
