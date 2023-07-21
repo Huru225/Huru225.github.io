@@ -52,9 +52,23 @@
     </style>
 </head>
 <body>
-  <div id="cardContainer" class="container">
-    <!-- 动态生成的卡片将出现在这里 -->
-  </div>
+    <div class="box-card-ad box-center">
+        <ul class="list-group">
+            <li class="list-group-item active" aria-current="true">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>杰弟作品</span>
+                  <div class="text-right">
+                    <a href="https://gitblock.cn/Users/1137327/My/PublishedProjects" class="text-light">
+                      查看全部<span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </div>
+                </div>
+            <li class="list-group-item">
+                <div class="card-group box-center" id="cardContainer">
+                </div>
+            </li>
+          </ul>
+      </div>
 
   <script>
     // 读取 JSON 文件并生成卡片元素
