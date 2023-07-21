@@ -78,31 +78,73 @@
             var cardGroups = Math.ceil(data.length / 5); // 总共需要的 card-group div 数量
             var count = 0; // 记录已经创建的 card-group div 数量
             var index = 0; // 记录当前卡片的索引
+            var cardGroup, cardContainer, card;
     
             while (count < cardGroups) {
               // 创建 card-group div
-              var cardGroup = document.createElement("div");
+              cardGroup = document.createElement("div");
               cardGroup.className = "card-group box-center";
-              var cardContainer = document.getElementById("cardContainer");
+              cardContainer = document.getElementById("cardContainer");
               cardContainer.appendChild(cardGroup);
     
               // 每个 card-group div 最多包含 5 个卡片
               for (var i = 0; i < 5; i++) {
                 if (index >= data.length) break; // 确保不超出卡片的数量
     
+                // 从 JSON 数据中获取属性值
+                var imgURL = data[index].img;
+                var title = data[index].title;
+                var url = data[index].url;
+                var time = data[index].time;
+                var tag = data[index].tag;
+    
                 // 创建卡片元素
-                var card = document.createElement("div");
+                card = document.createElement("div");
                 card.className = "card";
     
                 // 创建卡片图片
-                var image = document.createElement("img");
-                image.src = data[index].image;
-                card.appendChild(image);
+                var img = document.createElement("img");
+                img.src = imgURL;
+                img.className = "card-img-top cardi";
+                card.appendChild(img);
     
                 // 创建卡片内容
-                var content = document.createElement("div");
-                content.innerText = data[index].content;
-                card.appendChild(content);
+                var cardBody = document.createElement("div");
+                cardBody.className = "card-body";
+                card.appendChild(cardBody);
+    
+                // 创建卡片标题
+                var cardTitle = document.createElement("h5");
+                cardTitle.className = "card-title";
+                cardTitle.innerText = title;
+                cardBody.appendChild(cardTitle);
+    
+                // 创建卡片底部
+                var cardFooter = document.createElement("div");
+                cardFooter.className = "card-footer";
+                cardBody.appendChild(cardFooter);
+    
+                // 创建卡片链接
+                var link = document.createElement("a");
+                link.className = "card-text";
+                link.href = url;
+                link.innerText = "现在就去！";
+                cardFooter.appendChild(link);
+    
+                // 创建卡片时间信息
+                var timeInfo = document.createElement("p");
+                timeInfo.className = "card-text";
+                var smallText = document.createElement("small");
+                smallText.className = "text-muted";
+                smallText.innerText = "上次更新 " + time;
+                timeInfo.appendChild(smallText);
+                cardFooter.appendChild(timeInfo);
+    
+                // 创建卡片标签
+                var tagInfo = document.createElement("p");
+                tagInfo.className = "card-text";
+                tagInfo.innerText = tag;
+                cardFooter.appendChild(tagInfo);
     
                 // 将卡片元素添加到当前的 card-group div 中
                 cardGroup.appendChild(card);
