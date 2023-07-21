@@ -67,21 +67,21 @@
           var card = document.createElement("li");
           card.className = "card";
 
-          // 创建卡片图片
-          var img = document.createElement("img");
-          img.src = item.img;
-          img.className = "card-img-top";
-          card.appendChild(img);
-
           // 创建卡片内容
           var cardBody = document.createElement("div");
           cardBody.className = "card-body";
 
-          // 创建卡片标题
+          // 创建卡片标题（包括时间和标签）
           var title = document.createElement("h5");
           title.className = "card-title";
-          title.textContent = item.title;
+          title.textContent = item.title + " - " + item.time + " - " + item.tag;
           cardBody.appendChild(title);
+
+          // 创建卡片图片
+          var img = document.createElement("img");
+          img.src = item.img;
+          img.className = "card-img-top";
+          cardBody.appendChild(img);
 
           // 创建卡片链接
           var link = document.createElement("a");
