@@ -20,10 +20,6 @@
             flex: 0 0 auto;
             margin: 10px;
         }
-        .cardi {
-            width: 50;
-            height: 37.5;
-        }
         .tag {
             color: #ffffff;
             padding: 1px 5px;
@@ -79,83 +75,42 @@
           .then(response => response.json())
           .then(data => {
             // 循环遍历每一项数据并创建卡片元素
-            data.forEach((item, index) => {
-              // 每生成五个卡片前加入card-group div
-              if (index % 5 === 0) {
-                var cardGroup = document.createElement("div");
-                cardGroup.className = "card-group box-center";
-                var cardContainer = document.getElementById("cardContainer");
-                cardContainer.appendChild(cardGroup);
+            var cardGroups = Math.ceil(data.length / 5); // 总共需要的 card-group div 数量
+            var count = 0; // 记录已经创建的 card-group div 数量
+            var index = 0; // 记录当前卡片的索引
+    
+            while (count < cardGroups) {
+              // 创建 card-group div
+              var cardGroup = document.createElement("div");
+              cardGroup.className = "card-group box-center";
+              var cardContainer = document.getElementById("cardContainer");
+              cardContainer.appendChild(cardGroup);
+    
+              // 每个 card-group div 最多包含 5 个卡片
+              for (var i = 0; i < 5; i++) {
+                if (index >= data.length) break; // 确保不超出卡片的数量
+    
+                // 创建卡片元素
+                var card = document.createElement("div");
+                card.className = "card";
+    
+                // 创建卡片图片
+                var image = document.createElement("img");
+                image.src = data[index].image;
+                card.appendChild(image);
+    
+                // 创建卡片内容
+                var content = document.createElement("div");
+                content.innerText = data[index].content;
+                card.appendChild(content);
+    
+                // 将卡片元素添加到当前的 card-group div 中
+                cardGroup.appendChild(card);
+    
+                index++; // 更新卡片索引
               }
-          
-              // 创建卡片元素
-              var card = document.createElement("div");
-              card.className = "card";
     
-              // 创建卡片图片
-              var img = document.createElement("img");
-              img.src = item.img;
-              img.className = "card-img-top cardi";
-              img.alt = "...";
-              card.appendChild(img);
-    
-              // 创建卡片内容
-              var cardBody = document.createElement("div");
-              cardBody.className = "card-body";
-    
-              // 创建卡片标题
-              var title = document.createElement("h5");
-              title.className = "card-title";
-              title.textContent = item.title;
-              cardBody.appendChild(title);
-    
-              // 创建卡片底部
-              var cardFooter = document.createElement("div");
-              cardFooter.className = "card-footer";
-    
-              // 创建卡片链接
-              var link = document.createElement("a");
-              link.className = "card-text";
-              link.href = item.url;
-              link.textContent = "现在就去！";
-              cardFooter.appendChild(link);
-    
-              // 创建卡片更新时间
-              var timestamp = document.createElement("p");
-              timestamp.className = "card-text";
-              var small = document.createElement("small");
-              small.className = "text-muted";
-              small.textContent = "上次更新 " + item.time;
-              timestamp.appendChild(small);
-              cardFooter.appendChild(timestamp);
-    
-              // 创建卡片标签
-              var tag = document.createElement("p");
-              tag.className = "card-text";
-              tag.textContent = item.tag;
-              cardFooter.appendChild(tag);
-    
-              cardBody.appendChild(cardFooter);
-    
-              card.appendChild(cardBody);
-    
-              // 将卡片元素添加到文档中
-              var cardGroup = document.querySelector(".card-group");
-              cardGroup.appendChild(card);
-
-              // 每五个卡片后加入</div>
-            //   if ((index + 1) % 5 === 0) {
-            //       var closingDiv = document.createElement("div");
-            //       closingDiv.innerHTML = "</div>";
-            //       cardContainer.appendChild(closingDiv);
-            //   }
-            });
-            // 如果最后一组卡片少于五个，则补充 </div>
-            if (data.length % 5 !== 0) {
-                var cardContainer = document.getElementById("cardContainer");
-                var closingDiv = document.createElement("div");
-                closingDiv.innerHTML = "</div>";
-                cardContainer.appendChild(closingDiv);
+              count++; // 更新 card-group div 计数
             }
           })
           .catch(error => console.log(error));
