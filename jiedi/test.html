@@ -6,17 +6,17 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-7ymO4nGrkm372HoSbq1OY2DP4pEZnMiA+E0F3zPr+JQQtQ82gQ1HPY3QIVtztVua" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="navbar"></div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('nav.txt')
-                .then(response => response.text())
-                .then(navbarContent => {
-                console.log(navbarContent); // 输出到控制台
-                })
-                .catch(error => {
+        fetch('nav.txt')
+            .then(response => response.text())
+            .then(navbarContent => {
+                const navbarElement = document.getElementById('navbar');
+                navbarElement.innerHTML = navbarContent;
+            })
+            .catch(error => {
                 console.error("无法读取导航栏内容:", error);
-                });
-        });
+            });
     </script>
 
     <div class="box-card-ad box-center">
