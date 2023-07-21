@@ -1,10 +1,10 @@
 [
     {
       "img": "img/cannotCP.png",
-      "title": "项目1",
+      "title": "项目1<span class='tag bg-danger'>热门</span>",
       "url": "https://example.com/project1",
       "time": "2023-07-15",
-      "tag": "标签1"
+      "tag": "标签1<span class='tag bg-success'>杰弟佳作</span>"
     },
     {
       "img": "img/cannotCP.png",
