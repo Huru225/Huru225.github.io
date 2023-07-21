@@ -59,7 +59,7 @@
                   <span>杰弟作品</span>
                   <div class="text-right">
                     <a href="https://gitblock.cn/Users/1137327/My/PublishedProjects" class="text-light">
-                      查看全部<span aria-hidden="true">&raquo;</span>
+                      查看所有作品<span aria-hidden="true">&raquo;</span>
                     </a>
                   </div>
                 </div>
@@ -70,47 +70,70 @@
           </ul>
       </div>
 
-  <script>
-    // 读取 JSON 文件并生成卡片元素
-    fetch('json/jdprojects.json')
-      .then(response => response.json())
-      .then(data => {
-        // 循环遍历每一项数据并创建卡片元素
-        data.forEach(item => {
-          // 创建卡片元素
-          var card = document.createElement("li");
-          card.className = "card";
-
-          // 创建卡片内容
-          var cardBody = document.createElement("div");
-          cardBody.className = "card-body";
-
-          // 创建卡片标题（包括时间和标签）
-          var title = document.createElement("h5");
-          title.className = "card-title";
-          title.textContent = item.title + " - " + item.time + " - " + item.tag;
-          cardBody.appendChild(title);
-
-          // 创建卡片图片
-          var img = document.createElement("img");
-          img.src = item.img;
-          img.className = "card-img-top";
-          cardBody.appendChild(img);
-
-          // 创建卡片链接
-          var link = document.createElement("a");
-          link.href = item.url;
-          link.textContent = "访问项目";
-          cardBody.appendChild(link);
-
-          card.appendChild(cardBody);
-
-          // 将卡片元素添加到文档中
-          var cardContainer = document.getElementById("cardContainer");
-          cardContainer.appendChild(card);
-        });
-      })
-      .catch(error => console.log(error));
-  </script>
+      <script>
+        // 读取 JSON 文件并生成卡片元素
+        fetch('json/jdprojects.json')
+          .then(response => response.json())
+          .then(data => {
+            // 循环遍历每一项数据并创建卡片元素
+            data.forEach(item => {
+              // 创建卡片元素
+              var card = document.createElement("div");
+              card.className = "card";
+    
+              // 创建卡片图片
+              var img = document.createElement("img");
+              img.src = item.img;
+              img.className = "card-img-top cardi";
+              img.alt = "...";
+              card.appendChild(img);
+    
+              // 创建卡片内容
+              var cardBody = document.createElement("div");
+              cardBody.className = "card-body";
+    
+              // 创建卡片标题
+              var title = document.createElement("h5");
+              title.className = "card-title";
+              title.textContent = item.title;
+              cardBody.appendChild(title);
+    
+              // 创建卡片底部
+              var cardFooter = document.createElement("div");
+              cardFooter.className = "card-footer";
+    
+              // 创建卡片链接
+              var link = document.createElement("a");
+              link.className = "card-text";
+              link.href = item.url;
+              link.textContent = "现在就去！";
+              cardFooter.appendChild(link);
+    
+              // 创建卡片更新时间
+              var timestamp = document.createElement("p");
+              timestamp.className = "card-text";
+              var small = document.createElement("small");
+              small.className = "text-muted";
+              small.textContent = "上次更新 " + item.time;
+              timestamp.appendChild(small);
+              cardFooter.appendChild(timestamp);
+    
+          // 创建卡片标签
+          var tag = document.createElement("p");
+              tag.className = "card-text";
+          tag.textContent = item.tag;
+          cardFooter.appendChild(tag);
+    
+              cardBody.appendChild(cardFooter);
+    
+              card.appendChild(cardBody);
+    
+              // 将卡片元素添加到文档中
+              var cardContainer = document.getElementById("cardContainer");
+              cardContainer.appendChild(card);
+            });
+          })
+          .catch(error => console.log(error));
+      </script>
 </body>
 </html>
