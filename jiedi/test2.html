@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+    <div id="Progress">
+        <!-- 进度条容器 -->
+    </div>
+    
+    <script>
+        // 在容器中添加元素
+        var container = document.getElementById("Progress");
+        var element = document.createElement("div");
+        element.setAttribute("class", "mdui-progress");
+        element.innerHTML = '<div class="mdui-progress-indeterminate"></div>';
+        container.appendChild(element);
+    
+        // 等待5秒后删除或隐藏元素
+        setTimeout(function() {
+          container.removeChild(element);
+          // 或者使用以下代码隐藏元素
+          // element.style.display = "none";
+        }, 5000);
+    </script>
+</body>
+</html>

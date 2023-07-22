@@ -4,6 +4,19 @@
   <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
+    <div id="Progress">
+        <!-- 进度条容器 -->
+    </div>
+    
+    <script>
+        // 创建进度条元素并添加到容器中
+        var con2 = document.getElementById("Progress");
+        var element = document.createElement("div");
+        element.setAttribute("class", "mdui-progress");
+        element.innerHTML = '<div class="mdui-progress-indeterminate"></div>';
+        con2.appendChild(element);
+    </script>
+
     <div id="navbar"></div>
     <script type="text/javaScript" src="js/nav.js"></script>
 
@@ -117,6 +130,18 @@
             }
           })
           .catch(error => console.log(error));
-      </script>
+    </script>
+
+    <script>
+        // 等待5秒后删除或隐藏元素
+        setTimeout(function() {
+        var element = document.querySelector("#Progress .mdui-progress");
+        if (element) {
+            con2.removeChild(element);
+            // 或者使用以下代码隐藏元素
+            // element.style.display = "none";
+        }
+        }, 5000);
+    </script>
 </body>
 </html>
