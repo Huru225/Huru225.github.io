@@ -1,6 +1,10 @@
 @import url('https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css');
 @import url('https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+@font-face {
+    font-family: 'Source Han Sans Serif';
+    src: url('font/SourceHanSansSC-Regular-2.otf') format('opentype');
+}
 .box-card-ad {
     width: 90%;
 }
@@ -30,13 +34,12 @@
     background-color: white;
     border: none;
 }
-@font-face {
-    font-family: 'Source Han Sans Serif';
-    src: url('font/SourceHanSansSC-Regular-2.otf') format('opentype');
-}
 body {
     font-family: 'Source Han Sans Serif';
 }
 .text-right {
     text-align: right;
+}
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 替换为你想要的阴影样式 */
 }
